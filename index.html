@@ -1,0 +1,78 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, nitial-scale=1.0">
+        <title>contact form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <div class="contact-container">
+            <form action="https://api.web3forms.com/submit" method="POST"class="contact-left">
+                <div class="contact-left-title">
+                    <h2>Get in touch</h2>
+                    <hr>
+                </div>
+                <input type="hidden" name="access_key" value="34e6db49-7faf-47d5-9da8-b16480acd08c">
+                <input type="text"  name="name" placeholder="Your Name" class="contact-inputs" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                <input type="numbers" name="numbers" placeholder="Your Number" class="contact-inputs" required>
+                <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                <div class="contact-left-title1">
+                    <h2>Opportunity</h2>
+                    <hr>
+                </div>
+                <input type="text" name="service" placeholder="Service"class="contact-inputs" required>
+                <input type="text"name="value of the opportunity" placeholder="Value"class="contact-inputs" required>
+                <input type="text"name="stage of opportunity" placeholder="Stage"class="contact-inputs" required>
+                <input type="text"name="probability of closure" placeholder="Probability of closure"class="contact-inputs" required>
+                <input type="text"name="expected date of closure" placeholder="Expected date of closure"class="contact-inputs" required>
+                <input type="text"name="follow up date" placeholder="Follow up date"class="contact-inputs" required>
+                <input type="text"name="follow up task" placeholder="Follow up task"class="contact-inputs" required>
+                <input type="message"name="last meeting remarks" placeholder="meeting remarks"class="contact-inputs" required>
+                <button type="submit"name="button">Submit</button>
+                
+                
+                
+            </form>
+            
+            <div class="contact-right">
+                <img src="Untitled design.png"alt="">           
+            </div>
+        </div>
+    </body>
+
+<div class="container">
+    <div id="newtask">
+        <input type="text" placeholder="Add Tasks">
+        <button id="push">Add</button>
+    </div>
+    <div id="tasks"></div>
+</div></html>
+<script>
+document.querySelector('#push').onclick = function(){
+  if(document.querySelector('#newtask input').value.length == 0){
+      alert("Kindly Enter Task Name!!!!")
+  }
+
+  else{
+      document.querySelector('#tasks').innerHTML += `
+          <div class="task">
+              <span id="taskname">
+                  ${document.querySelector('#newtask input').value}
+              </span>
+              <button class="delete">
+                  <i class="far fa-trash-alt"></i>
+              </button>
+          </div>
+      `;
+
+      var current_tasks = document.querySelectorAll(".delete");
+      for(var i=0; i<current_tasks.length; i++){
+          current_tasks[i].onclick = function(){
+              this.parentNode.remove();
+          }
+      }
+  }
+}
+</script>
